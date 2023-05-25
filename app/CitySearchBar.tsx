@@ -1,18 +1,15 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useContext } from "react";
 import debounce from "lodash.debounce";
 import { City } from "@prisma/client";
-import useLocalStorage from "./useLocalStorage";
+import { CitiesContext } from "./citiesProvider";
 
 export default function CitySearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<City[]>([]);
   const [loading, setLoading] = useState(false);
-  const [storedCities, setStoredCities] = useLocalStorage<City[]>(
-    "weather-dashboard-cities",
-    []
-  );
+  const { storedCities, setStoredCities } = useContext(CitiesContext);
 
   async function changeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -35,12 +32,13 @@ export default function CitySearchBar() {
   );
 
   return (
-    <div className={`flex flex-col text-slate-400 rounded-lg relative`}>
+    <div className="flex flex-col text-slate-400 rounded-lg relative">
+      <p className="text-slate-300 font-bold mb-3">Search</p>
       <input
         type="text"
         value={query}
         placeholder="Type here..."
-        className="bg-slate-900 placeholder-slate-400 rounded-lg text-sm p-3 ring-2 ring-slate-700 focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 relative"
+        className="bg-slate-900 placeholder-slate-400 rounded-lg text-sm p-3 ring-2 ring-slate-700 focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700"
         onChange={(event) => {
           setQuery(event.target.value);
           if (event.target.value.length === 0) {
@@ -51,7 +49,7 @@ export default function CitySearchBar() {
           }
         }}
       />
-      <div className="absolute right-3 mt-3">
+      <div className="absolute right-3 top-12">
         {loading ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +79,7 @@ export default function CitySearchBar() {
         )}
       </div>
       <div
-        className={`absolute min-w-full top-14 divide-y divide-slate-700 bg-slate-900 rounded-lg ring-2 ring-slate-700 transition-all ease-in duration-150 origin-top ${
+        className={`absolute min-w-full top-24 divide-y divide-slate-700 bg-slate-900 rounded-lg ring-2 ring-slate-700 transition-all ease-in duration-150 origin-top ${
           results.length === 0
             ? "scale-y-0 opacity-0"
             : "scale-y-100 opacity-100"
@@ -93,7 +91,6 @@ export default function CitySearchBar() {
               key={result.id}
               className="text-sm p-3 cursor-pointer hover:bg-slate-700 hover:text-slate-300"
               onClick={() => {
-                console.log(result);
                 setResults([]);
                 setQuery("");
                 setStoredCities([...storedCities, result]);

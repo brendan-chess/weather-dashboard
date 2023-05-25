@@ -1,3 +1,4 @@
+import CitiesProvider from "./citiesProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col p-4 bg-slate-950 text-slate-200">
-          {children}
+          <CitiesProvider>{children}</CitiesProvider>
         </div>
       </body>
     </html>
