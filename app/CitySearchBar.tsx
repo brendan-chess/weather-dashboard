@@ -3,10 +3,16 @@
 import { useState, useMemo } from "react";
 import debounce from "lodash.debounce";
 import { City } from "@prisma/client";
+import useLocalStorage from "./useLocalStorage";
 
 export default function CitySearchBar() {
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<City[]>([]);
   const [loading, setLoading] = useState(false);
+  const [storedCities, setStoredCities] = useLocalStorage<City[]>(
+    "weather-dashboard-cities",
+    []
+  );
 
   async function changeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -32,9 +38,11 @@ export default function CitySearchBar() {
     <div className={`flex flex-col text-slate-400 rounded-lg relative`}>
       <input
         type="text"
+        value={query}
         placeholder="Type here..."
         className="bg-slate-900 placeholder-slate-400 rounded-lg text-sm p-3 ring-2 ring-slate-700 focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 relative"
         onChange={(event) => {
+          setQuery(event.target.value);
           if (event.target.value.length === 0) {
             setResults([]);
           } else {
@@ -43,7 +51,7 @@ export default function CitySearchBar() {
           }
         }}
       />
-      <div className="absolute right-7 mt-3">
+      <div className="absolute right-3 mt-3">
         {loading ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +89,16 @@ export default function CitySearchBar() {
       >
         {results.map((result: City) => {
           return (
-            <div key={result.id} className="text-sm p-3">
+            <div
+              key={result.id}
+              className="text-sm p-3 cursor-pointer hover:bg-slate-700 hover:text-slate-300"
+              onClick={() => {
+                console.log(result);
+                setResults([]);
+                setQuery("");
+                setStoredCities([...storedCities, result]);
+              }}
+            >
               <p>
                 {result.city}, {result.state}
               </p>
