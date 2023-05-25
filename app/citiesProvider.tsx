@@ -12,12 +12,12 @@ import useLocalStorage from "./useLocalStorage";
 export const CitiesContext = createContext<{
   storedCities: City[];
   setStoredCities: React.Dispatch<React.SetStateAction<City[]>>;
-  selectedCity: string;
-  setSelectedCity: React.Dispatch<React.SetStateAction<string>>;
+  selectedCity: City;
+  setSelectedCity: React.Dispatch<React.SetStateAction<City>>;
 }>({
   storedCities: [],
   setStoredCities: () => {},
-  selectedCity: "",
+  selectedCity: { id: "", city: "", latitude: -1, longitude: -1, state: "" },
   setSelectedCity: () => {},
 });
 
@@ -31,7 +31,13 @@ export default function CitiesProvider({ children }: CitiesProviderProps) {
   //   []
   // );
   const [storedCities, setStoredCities] = useState<City[]>([]);
-  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedCity, setSelectedCity] = useState<City>({
+    id: "",
+    city: "",
+    latitude: -1,
+    longitude: -1,
+    state: "",
+  });
 
   return (
     <CitiesContext.Provider
