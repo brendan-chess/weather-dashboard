@@ -17,12 +17,14 @@ export default function CityList() {
         </p>
       ) : (
         storedCities.map((city: City) => {
+          const selected = city.id === selectedCity.id;
           return (
             <div
               key={city.id}
-              className={`p-3 my-3 text-slate-400 bg-slate-900 ring-2 ring-slate-700 rounded-lg text-sm cursor-pointer hover:bg-slate-700 ${
-                selectedCity.id === city.id &&
-                "bg-sky-700 ring-sky-700 text-slate-100 hover:bg-sky-700"
+              className={`p-3 my-3 rounded-lg text-sm font-medium cursor-pointer  ${
+                selected
+                  ? "bg-gradient-to-br from-blue-800 to-indigo-800 text-slate-100"
+                  : "bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300"
               }`}
               onClick={() => setSelectedCity(city)}
             >

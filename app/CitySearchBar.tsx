@@ -38,7 +38,7 @@ export default function CitySearchBar() {
         type="text"
         value={query}
         placeholder="Type here..."
-        className="bg-slate-900 placeholder-slate-400 rounded-lg text-sm p-3 ring-2 ring-slate-700 focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700"
+        className="bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-700 rounded-lg text-sm p-3 "
         onChange={(event) => {
           setQuery(event.target.value);
           if (event.target.value.length === 0) {
@@ -79,7 +79,7 @@ export default function CitySearchBar() {
         )}
       </div>
       <div
-        className={`absolute min-w-full top-24 divide-y divide-slate-700 bg-slate-900 rounded-lg ring-2 ring-slate-700 transition-all ease-in duration-150 origin-top ${
+        className={`bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 absolute min-w-full top-24 divide-y divide-slate-700 ring-2 ring-slate-700 rounded-lg transition-all ease-in duration-150 origin-top z-10 ${
           results.length === 0
             ? "scale-y-0 opacity-0"
             : "scale-y-100 opacity-100"

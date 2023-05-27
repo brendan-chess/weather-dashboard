@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex min-h-screen flex-col p-4 bg-slate-950 text-slate-200">
+        <div className="flex min-h-screen flex-col p-4 bg-gray-950 text-slate-200">
           <CitiesProvider>{children}</CitiesProvider>
         </div>
       </body>

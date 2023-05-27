@@ -4,11 +4,6 @@ import { City } from "@prisma/client";
 import { ReactNode, createContext, useState } from "react";
 import useLocalStorage from "./useLocalStorage";
 
-// export const CitiesContext = createContext<[City[], (value: City[]) => void]>([
-//   [],
-//   () => {},
-// ]);
-
 export const CitiesContext = createContext<{
   storedCities: City[];
   setStoredCities: React.Dispatch<React.SetStateAction<City[]>>;
@@ -26,10 +21,6 @@ type CitiesProviderProps = {
 };
 
 export default function CitiesProvider({ children }: CitiesProviderProps) {
-  // const [storedCities, setStoredCities] = useLocalStorage<City[]>(
-  //   "weather-dashboard-cities",
-  //   []
-  // );
   const [storedCities, setStoredCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<City>({
     id: "",

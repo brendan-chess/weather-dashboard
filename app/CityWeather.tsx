@@ -34,7 +34,7 @@ export default function CityWeather() {
     <div>
       <p className="text-slate-300 font-bold">Weather</p>
       {selectedCity.id !== "" && (
-        <div className="p-3 my-3 bg-gradient-to-r from-indigo-800 to-blue-800 rounded-lg">
+        <div className="p-3 my-3 bg-gradient-to-br from-blue-800 to-indigo-800 ring-2 ring-blue-800 rounded-lg">
           <p className="text-xl font-semibold">
             {selectedCity.city}, {selectedCity.state}
           </p>
