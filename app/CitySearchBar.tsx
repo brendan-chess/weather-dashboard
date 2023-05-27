@@ -27,7 +27,7 @@ export default function CitySearchBar() {
   }
 
   const debouncedChangeHandler = useMemo(
-    () => debounce(changeHandler, 1000),
+    () => debounce(changeHandler, 500),
     []
   );
 
