@@ -1,5 +1,6 @@
 type Weather = {
   current: {
+    time: string;
     temperature: number;
     temperatureFeelsLike: number;
     condition: string;

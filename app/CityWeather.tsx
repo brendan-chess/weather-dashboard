@@ -34,12 +34,13 @@ export default function CityWeather() {
     <div>
       <p className="text-slate-300 font-bold">Weather</p>
       {selectedCity.id !== "" && (
-        <div className="p-3 my-3 bg-gradient-to-br from-blue-800 to-indigo-800 ring-2 ring-blue-800 rounded-lg">
-          <p className="text-xl font-semibold">
-            {selectedCity.city}, {selectedCity.state}
-          </p>
+        <div className="p-3 my-3 bg-gradient-to-br from-blue-800 to-indigo-800 rounded-lg">
           {weather !== null && (
             <>
+              <p className="text-xl font-semibold">
+                {selectedCity.city}, {selectedCity.state}
+              </p>
+              <p className="opacity-60">{weather.current.time}</p>
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
                   <p className="text-4xl font-semibold mb-2">
@@ -57,11 +58,13 @@ export default function CityWeather() {
                 />
               </div>
 
-              <div className="rounded-lg p-2 my-2 bg-blue-950 bg-opacity-50">
-                <p className="text-sm mb-3 text-center">3-Day Forecast</p>
+              <div className="rounded-lg px-2 py-4 mt-2 bg-blue-950 bg-opacity-50">
+                <p className="text-base font-medium mb-6 text-center">
+                  3-Day Forecast
+                </p>
                 <div className="flex justify-between">
                   <div className="flex flex-col items-center">
-                    <p className="text-sm opacity-60">
+                    <p className="text-sm font-medium">
                       {weather.forecast.dayOne.date}
                     </p>
                     <img
@@ -82,7 +85,7 @@ export default function CityWeather() {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <p className="text-sm opacity-60">
+                    <p className="text-sm font-medium">
                       {weather.forecast.dayTwo.date}
                     </p>
                     <img
@@ -102,7 +105,7 @@ export default function CityWeather() {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <p className="text-sm opacity-60">
+                    <p className="text-sm font-medium">
                       {weather.forecast.dayThree.date}
                     </p>
                     <img

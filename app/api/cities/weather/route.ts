@@ -19,10 +19,18 @@ export async function GET(request: Request) {
 
   const json = await res.json();
 
-  console.log(json.forecast);
+  console.log(json);
+
+  const date = new Date(json.location.localtime);
+  const timeString = date.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
 
   const weather = {
     current: {
+      time: timeString,
       temperature: Math.round(json.current.temp_f),
       temperatureFeelsLike: Math.round(json.current.feelslike_f),
       condition: json.current.condition.text,
