@@ -16,13 +16,13 @@ export default function CityList() {
           Search for a city to get started
         </p>
       ) : (
-        <div className="max-h-[390px] overflow-y-scroll">
+        <div className="max-h-[386px] overflow-y-scroll mt-3 flex flex-col gap-3">
           {storedCities.map((city: City) => {
             const selected = city.id === selectedCity.id;
             return (
               <div
                 key={city.id}
-                className={`p-3 my-3 rounded-lg text-sm font-medium cursor-pointer  ${
+                className={`p-3 rounded-lg text-sm font-medium cursor-pointer  ${
                   selected
                     ? "bg-gradient-to-br from-blue-800 to-indigo-800 text-slate-100"
                     : "bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 hover:from-gray-700 hover:to-gray-800"

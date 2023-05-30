@@ -37,7 +37,7 @@ export default function CitySearchBar() {
       <input
         type="text"
         value={query}
-        placeholder="Type here..."
+        placeholder='e.g. "Boston"'
         className="bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-700 rounded-lg text-sm p-3 "
         onChange={(event) => {
           setQuery(event.target.value);

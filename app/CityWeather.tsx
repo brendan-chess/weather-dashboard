@@ -64,7 +64,7 @@ export default function CityWeather() {
                 </p>
                 <div className="flex justify-between">
                   <div className="flex flex-col items-center">
-                    <p className="text-sm font-medium">
+                    <p className="font-medium">
                       {weather.forecast.dayOne.date}
                     </p>
                     <img
@@ -72,8 +72,7 @@ export default function CityWeather() {
                       alt={weather.current.condition}
                       className="scale-50"
                     />
-
-                    <p className="text-xs">
+                    <p className="text-sm">
                       <span className="opacity-60">
                         {weather.forecast.dayOne.temperatureLow}
                         <span className="align-top">º</span>
@@ -85,7 +84,7 @@ export default function CityWeather() {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <p className="text-sm font-medium">
+                    <p className="font-medium">
                       {weather.forecast.dayTwo.date}
                     </p>
                     <img
@@ -93,7 +92,7 @@ export default function CityWeather() {
                       alt={weather.current.condition}
                       className="scale-50"
                     />
-                    <p className="text-xs">
+                    <p className="text-sm">
                       <span className="opacity-60">
                         {weather.forecast.dayTwo.temperatureLow}
                         <span className="align-top">º</span>
@@ -105,7 +104,7 @@ export default function CityWeather() {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <p className="text-sm font-medium">
+                    <p className="font-medium">
                       {weather.forecast.dayThree.date}
                     </p>
                     <img
@@ -113,7 +112,7 @@ export default function CityWeather() {
                       alt={weather.current.condition}
                       className="scale-50"
                     />
-                    <p className="text-xs">
+                    <p className="text-sm">
                       <span className="opacity-60">
                         {weather.forecast.dayThree.temperatureLow}
                         <span className="align-top">º</span>
