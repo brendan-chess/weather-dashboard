@@ -33,12 +33,11 @@ export default function CitySearchBar() {
 
   return (
     <div className="flex flex-col text-slate-400 rounded-lg relative">
-      <p className="text-slate-300 font-bold mb-3">Search</p>
       <input
         type="text"
         value={query}
         placeholder='e.g. "Boston"'
-        className="bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-700 rounded-lg text-sm p-3 "
+        className="bg-gradient-to-br from-gray-800 to-gray-900 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-700 rounded-lg text-sm p-3 "
         onChange={(event) => {
           setQuery(event.target.value);
           if (event.target.value.length === 0) {
@@ -49,7 +48,7 @@ export default function CitySearchBar() {
           }
         }}
       />
-      <div className="absolute right-3 top-12">
+      <div className="absolute right-3 top-3">
         {loading ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +78,7 @@ export default function CitySearchBar() {
         )}
       </div>
       <div
-        className={`bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 absolute min-w-full top-24 divide-y divide-slate-700 ring-2 ring-slate-700 rounded-lg transition-all ease-in duration-150 origin-top z-10 ${
+        className={`bg-gradient-to-br from-gray-800 to-gray-900 text-slate-300 absolute min-w-full top-14 divide-y divide-slate-700 ring-2 ring-slate-700 rounded-lg transition-all ease-in duration-150 origin-top z-10 ${
           results.length === 0
             ? "scale-y-0 opacity-0"
             : "scale-y-100 opacity-100"
