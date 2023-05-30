@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+import Header from "./Header";
 import CitiesProvider from "./citiesProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -18,11 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col items-center justify-center bg-gray-950 text-slate-200">
-          <p className="text-4xl font-bold">Weather Dashboard</p>
-          <p className="text-slate-400 font-medium text-sm mt-1 mb-6">
-            Current weather and 3-day forecasts for cities in the U.S.
-          </p>
+          <Header />
           <CitiesProvider>{children}</CitiesProvider>
+          <Footer />
         </div>
       </body>
     </html>
