@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 
   const res = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${latitude},${longitude}&days=3&aqi=no&alerts=no`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 0 } }
   );
 
   const json = await res.json();
