@@ -16,9 +16,7 @@ export default function CitySearchBar() {
     const value = event.target.value;
 
     if (value.length > 0) {
-      const res = await fetch(
-        `http://localhost:3000/api/cities/search?query=${value}`
-      );
+      const res = await fetch(`/api/cities/search?query=${value}`);
       const json = await res.json();
       setResults(json);
     } else {
