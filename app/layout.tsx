@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex min-h-screen flex-col items-center justify-center bg-gray-950 text-slate-200">
+        <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-radial from-gray-950 to-gray-900 text-slate-200">
           <Header />
           <CitiesProvider>{children}</CitiesProvider>
           <Footer />

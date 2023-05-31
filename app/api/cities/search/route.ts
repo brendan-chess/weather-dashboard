@@ -14,7 +14,7 @@ export async function GET(request: Request) {
         mode: "insensitive",
       },
     },
-    take: 10,
+    take: 8,
   });
 
   return NextResponse.json(search);

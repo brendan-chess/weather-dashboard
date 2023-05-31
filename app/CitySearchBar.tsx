@@ -9,7 +9,8 @@ export default function CitySearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<City[]>([]);
   const [loading, setLoading] = useState(false);
-  const { storedCities, setStoredCities } = useContext(CitiesContext);
+  const { storedCities, setStoredCities, setSelectedCity } =
+    useContext(CitiesContext);
 
   async function changeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -93,6 +94,7 @@ export default function CitySearchBar() {
                 setResults([]);
                 setQuery("");
                 setStoredCities([...storedCities, result]);
+                setSelectedCity(result);
               }}
             >
               <p>

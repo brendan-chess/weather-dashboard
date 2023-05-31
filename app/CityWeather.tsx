@@ -19,8 +19,8 @@ export default function CityWeather() {
     if (selectedCity.id !== "") fetchWeather();
   }, [selectedCity]);
 
-  return (
-    <div className="p-3 my-3 md:mt-0 bg-gradient-to-br from-blue-800 to-indigo-800 rounded-lg h-full">
+  return selectedCity.id !== "" ? (
+    <div className="p-3 my-3 md:mt-0 bg-gradient-to-br from-blue-800 to-indigo-800 rounded-lg h-full min-w-[335px]">
       {weather !== null && selectedCity.id !== "" ? (
         <>
           <p className="text-xl font-semibold">
@@ -117,6 +117,17 @@ export default function CityWeather() {
           <div className="h-56 w-full mt-7 bg-blue-950 bg-opacity-50 rounded-lg" />
         </div>
       )}
+    </div>
+  ) : (
+    <div className="p-3 my-3 md:mt-0 bg-gradient-to-br from-blue-800 to-indigo-800 rounded-lg h-full min-w-[335px]">
+      <div className="h-6 w-1/2 bg-blue-950 bg-opacity-50 rounded-lg mb-3" />
+      <div className="h-4 w-1/4 bg-blue-950 bg-opacity-50 rounded-md" />
+      <div className="flex justify-between mt-4 mb-2">
+        <div className="h-12 w-12 bg-blue-950 bg-opacity-50 rounded-xl" />
+        <div className="h-12 w-12 mr-8 bg-blue-950 bg-opacity-50 rounded-xl" />
+      </div>
+      <div className="h-4 w-1/3 bg-blue-950 bg-opacity-50 rounded-md" />
+      <div className="h-56 w-full mt-7 bg-blue-950 bg-opacity-50 rounded-lg" />
     </div>
   );
 }

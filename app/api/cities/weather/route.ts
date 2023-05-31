@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 
 function formatDate(date: string) {
   const dateElements = date.split("-");
-  let newDate = `${dateElements[1]}/${dateElements[2]}`;
-  if (newDate.charAt(0) === "0") newDate = newDate.substring(1);
+
+  let month = dateElements[1];
+  if (month.charAt(0) === "0") month = month.substring(1);
+
+  let day = dateElements[2];
+  if (day.charAt(0) === "0") day = day.substring(1);
+
+  let newDate = `${month}/${day}`;
+
   return newDate;
 }
 
@@ -18,8 +25,6 @@ export async function GET(request: Request) {
   );
 
   const json = await res.json();
-
-  console.log(json);
 
   const date = new Date(json.location.localtime);
   const timeString = date.toLocaleString("en-US", {
