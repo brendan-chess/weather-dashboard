@@ -10,7 +10,7 @@ export default function CityWeather() {
   useEffect(() => {
     const fetchWeather = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/cities/weather?latitude=${selectedCity.latitude}&longitude=${selectedCity.longitude}`
+        `/api/cities/weather?latitude=${selectedCity.latitude}&longitude=${selectedCity.longitude}`
       );
       const json: Weather = await res.json();
       setWeather(json);
