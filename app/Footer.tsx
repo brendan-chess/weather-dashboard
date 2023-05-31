@@ -1,4 +1,3 @@
-// footer
 export default function Footer() {
   return (
     <div className="text-center mt-8 mb-12 md:mb-0 px-4">
