@@ -16,7 +16,7 @@ export default function CityList() {
           Search for a city to get started
         </p>
       ) : (
-        <div className="h-80 overflow-y-auto mt-5 flex flex-col gap-3">
+        <div className="md:h-80 overflow-y-auto mt-5 flex flex-col gap-3">
           {storedCities.map((city: City) => {
             const selected = city.id === selectedCity.id;
             return (
