@@ -9,14 +9,14 @@ export default function CityList() {
     useContext(CitiesContext);
 
   return (
-    <div className="mt-6">
+    <div className="mt-5 ">
       <div className="h-0.5 w-3/5 mx-auto bg-slate-400 rounded-full" />
       {storedCities.length < 1 ? (
         <p className="text-sm text-slate-400 my-6 text-center italic">
           Search for a city to get started
         </p>
       ) : (
-        <div className="max-h-[400px] overflow-y-scroll mt-6 flex flex-col gap-3">
+        <div className="h-80 overflow-y-auto mt-5 flex flex-col gap-3">
           {storedCities.map((city: City) => {
             const selected = city.id === selectedCity.id;
             return (
